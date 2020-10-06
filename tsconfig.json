@@ -6,5 +6,12 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/cattus-board/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/cattus-board/tsconfig.spec.json"
+    }
+]
 }

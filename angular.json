@@ -2,5 +2,49 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "cattus-board": {
+      "projectType": "library",
+      "root": "projects/cattus-board",
+      "sourceRoot": "projects/cattus-board/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cattus-board/tsconfig.lib.json",
+            "project": "projects/cattus-board/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cattus-board/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cattus-board/src/test.ts",
+            "tsConfig": "projects/cattus-board/tsconfig.spec.json",
+            "karmaConfig": "projects/cattus-board/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cattus-board/tsconfig.lib.json",
+              "projects/cattus-board/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": "b7623c2c-ad77-4222-83ed-ed65d6b452d2"
+  },
+  "defaultProject": "cattus-board"
 }
